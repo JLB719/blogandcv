@@ -1,0 +1,261 @@
+
+<html>
+<head>
+  <title>CV Builder</title>
+  <style>
+    .Form {
+      font-family: Arial;
+      font-size: 20;
+    }
+    .cv{
+      font-family: Arial;
+      font-size: 12;
+    }
+    .topbar {
+      background-color: #4169E1;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+  <center><h1>CV Builder </h1></center>
+</div>
+  <div class="Form">
+  <div class="PersonalDetails">
+    <h3>Personal Details</h3>
+    <form method="POST">
+      <p id="namequestion">Enter your full name</p>
+
+      <input type="text" name="name" id="namequest">
+      {% csrf_token %}
+    </form>
+      <br>
+      <form method="POST">
+      <p id="emailquestion">Enter your email</p>
+      <input type="email" name="email" id="email">
+      {% csrf_token %}
+    </form>
+      <br>
+      <form method="POST">
+      <p id="telquestion">Enter your telephone number</p>
+      <input type="tel" name="number" id="number">
+      {% csrf_token %}
+    </form>
+      <br>
+
+    </form>
+  </div>
+  <br>
+  <div class="PersonalProfile">
+    <h3>Personal Profile</h3>
+    <form method="POST">
+      <p id="profquestion">Enter a personal profile</p>
+
+      <textarea name="personalprof" id="personalprof" rows="8" cols="80"></textarea>
+      {% csrf_token %}
+      <br>
+      <input type="submit" value="Submit" id="Profile">
+      {% csrf_token %}
+    </form>
+  </div>
+  <br>
+  <div class="Skills">
+    <h3>Skills</h3>
+    <form method="POST">
+      <p id="Skillsquestion">Enter a skill</p>
+      <input type="text" name="skill" id="skill" >
+      {% csrf_token %}
+    </form>
+  </div>
+  <br>
+  <div class="Qualifications">
+    <h3> Qualifications </h3>
+    <form method="POST">
+      <p id="Qualificationquestion"> Enter a proffessional qualification </p>
+      <input type="text" name="qualification" id="qualification">
+      {% csrf_token %}
+
+    </form>
+  </div>
+  <br>
+  <div class="Projects">
+    <h3>Projects</h3>
+    <form method="POST">
+    <p id="ProjectQuestion"> Enter a project name</p>
+    <input type="text" name="projectover" id="projectover">
+    {% csrf_token %}
+    <p id="ProjectDescription"> Enter the description of the project</p>
+    <textarea rows="5" cols="60" name="Projectdes" id="projectdes"></textarea><br>
+    {% csrf_token %}
+    <input type="submit" value="Submit" id="ProjectSub" name="ProjectSubmit">
+    {% csrf_token %}
+  </form>
+  </div>
+  <br>
+  <div class="Achievments">
+    <h3>Achievments</h3>
+    <form method="POST">
+      <p id="Achievmentquestion">Enter an achievment</p>
+      <input type="text" name="achievement" id="achievment">
+      {% csrf_token %}
+
+  </div>
+  <br>
+  <div class="WorkExperience">
+    <h3>Work Experience</h3>
+    <form method="POST">
+      <p id="placeofworkq">Enter the place of work</p>
+      <input type="text" name="placeofwork" id="placeofwork">
+      {% csrf_token %}
+      <br>
+      <p id="roleq">Enter the job role</p>
+      <input type="text" name="role" id="role">
+      {% csrf_token %}
+      <br>
+      <p id="startdatewq">Enter the start date of the job</p>
+      <input type="text" name="startdatew" id="startdatew">
+      {% csrf_token %}
+      <br>
+      <p id="enddatewq">Enter the date you finished the role</p>
+      <input type="text" name="enddatew" id="enddatew">
+      {% csrf_token %}
+      <br>
+      <p id="jobdesq">Enter the job description details</p>
+      <textarea rows="5" cols="60" name="description" id="description"></textarea><br>
+      {% csrf_token %}
+      <input type="submit" value="Submit" id="WorkExperience" name="WorkSubmit">
+      {% csrf_token %}
+  </div>
+  <br>
+  <div class="Education">
+    <h3>Education</h3>
+    <form method="POST">
+      <p id="schoolq">Enter the name of the school</p>
+      <input type="text" name="school" id="school">
+      {% csrf_token %}
+      <br>
+      <p id="startdatesq">Enter the date you started at the school</p>
+      <input type="text" name="startdates" id="startdates">
+      {% csrf_token %}
+      <br>
+      <p id="enddatesq">Enter the date you finished at the school</p>
+      <input type="text" name="enddates" id="enddates">
+      {% csrf_token %}
+      <br>
+      <p id="gradesq">Enter the grades obtained</p>
+      <textarea name="grades" id="grades" rows="8" cols="60"></textarea>
+      {% csrf_token %}
+      <br>
+      <input type="submit" value="Submit" id="EducationSubmit" name="EducationSubmit">
+      {% csrf_token %}
+  </div>
+  <br>
+  <div class="Notes">
+    <h3>Notes</h3>
+    <form method="POST">
+      <p id="PostQuestion">Enter any other notes</p>
+      <textarea name="Notes" id="Notes" rows="8" cols="60"></textarea>
+      {% csrf_token %}
+      <br>
+      <input type="submit" value="Submit" id="NotesSubmit" name="NotesSubmit">
+      {% csrf_token %}
+    </form>
+  </div>
+</div>
+<div class="cv">
+  <br><br><br><br>
+  <hr style="border: 4px solid black,"/>
+  <center><h1>CV</h1></center>
+  <div class="Personaldetailsd">
+  <center>
+
+    <h4 id='namedis'>Name: {{ nameitems.text }}</h4>
+    <h4 id='emaildis'>Email: {{ emailitems.text }}</h4>
+    <h4 id='numberdis'>Number: {{ numberitems.text }}</h4>
+  </center>
+  <br><br><br>
+  </div>
+  <div class="Personalprofiled">
+  <h3>Personal Profile</h3>
+  <p padding: 5 7em 2em 0; id='profiledis'>{{ personalitems.text }}</p>
+
+  <br><br>
+  </div>
+  <div class="SkillsD">
+  <h3>Skills</h3>
+  <table id="skillstable">
+    {% for skillitem in skillitems %}
+      <tr><td><li>{{skillitem.text}}<td></tr>
+    {% endfor %}
+
+  </table>
+  <br><br><br>
+  </div>
+  <div class = "qualificationsd">
+    <h3>Qualifications</h3>
+    <table id="qualificationstable">
+      {% for x in qualificationitems %}
+       <tr><td><li>{{x.text}}<td></tr>
+      {% endfor %}
+    </table>
+    <br><br><br>
+  </div>
+  <div class="Projectsd">
+    <h3>Projects</h3>
+    {% for x in projectitems %}
+    <h4 id='projecttitle'>{{x.title}}</h4>
+    <p id='projectdescribe'>{{x.description}}</p>
+    <br>
+    {% endfor %}
+
+  </div>
+  <div class="achievmentsd">
+  <h3>Achievements</h3>
+  <table id="achtable">
+    {% for achitem in achitems %}
+      <tr><td><li>{{achitem.text}}<td></tr>
+    {% endfor %}
+
+
+  </table>
+  <br>
+
+  </div>
+  <div class="Jobsd">
+  <h3>Work experience</h3>
+
+  {% for workitem in workitems %}
+  <h4 id='jobtitled'>Job Role: {{workitem.role}}</h4>
+  <h4 id='jobcompd'>Company: {{workitem.company}}</h4>
+  <h4>Dates</h4>
+  <p id='jobdatesd'>Dates: {{workitem.startdate}} - {{workitem.enddate}}</p>
+  <h4>Job Description</h4>
+  <p id='jobdetailsd'>{{workitem.description}}</p>
+  <br>
+  {% endfor %}
+  <br><br>
+  </div>
+  <div class="Education d">
+  <h3>Education</h3>
+  {% for schoolitem in schoolitems %}
+  <h4 id='schoold'>School/College: {{schoolitem.school}}</h4>
+  <h4>Dates</h4>
+  <p id='schooldatesd'>{{schoolitem.startdate}} - {{schoolitem.enddate}}</p>
+  <h4>Details</h4>
+  <p id='schooldetailsd'>{{schoolitem.qualifications}}</p>
+  <br>
+  {% endfor %}
+  <br>
+  </div>
+  <div class="NotesD">
+    <h4>Additional Notes</h4>
+    {% for x in noteitems %}
+    <p id="notesdetails">{{x.note}}</p>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
