@@ -8,11 +8,12 @@
   <title>James's Blog</title>
 </head>
 <body>
-  <div class="page-header">
+  <div class="page-header" style="clear: both">
     {% if user.is_authenticated %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     {% endif %}
-    <h1><a href="/">James's Blog</a></h1>
+    <h1 style="float: left"><a href ="{% url 'cv' %}"><b>CV Builder</b></a></h1>
+    <center><h1 style="float: center"><a href="/">James's Blog</a></h1></center>
   </div>
   <div class="content container">
     <div class="row">
